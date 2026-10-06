@@ -385,3 +385,15 @@ select:focus-visible {
   outline: 3px solid #8db7a1;
   outline-offset: 2px;
 }
+
+/* TIPO DAS TRANSAÇÕES */
+
+.transacao-receita .valor-transacao {
+  color: var(--cor-positiva);
+  font-weight: bold;
+}
+
+.transacao-despesa .valor-transacao {
+  color: var(--cor-negativa);
+  font-weight: bold;
+}

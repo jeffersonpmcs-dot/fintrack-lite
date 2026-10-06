@@ -18,27 +18,51 @@ export function renderizarTransacoes(transacoes) {
     return;
   }
 
-  transacoes.forEach(function (transacao) {
-    const item = document.createElement("li");
+transacoes.forEach(function (transacao) {
+  const item = document.createElement("li");
 
-    item.innerHTML = `
-        <strong>${transacao.descricao}</strong>
-        <span>${formatadorMoeda.format(transacao.valor)}</span>
-        <span>${transacao.categoria}</span>
-        <span>${transacao.tipo}</span>
+  const categorias = {
+    alimentacao: "Alimentação",
+    transporte: "Transporte",
+    lazer: "Lazer",
+    salario: "Salário",
+    outros: "Outros"
+  };
 
-        <button
-            type="button"
-            class="btn-excluir"
-            data-id="${transacao.id}"
-            aria-label="Excluir transação ${transacao.descricao}"
-        >
-            Excluir
-        </button>
-        `;
+  const categoriaFormatada =
+    categorias[transacao.categoria] || transacao.categoria;
 
-    lista.appendChild(item);
-  });
+  const tipoFormatado =
+    transacao.tipo === "receita" ? "Receita" : "Despesa";
+
+  const sinal =
+    transacao.tipo === "receita" ? "+" : "-";
+
+  item.classList.add(`transacao-${transacao.tipo}`);
+
+  item.innerHTML = `
+    <strong>${transacao.descricao}</strong>
+
+    <span>${categoriaFormatada}</span>
+
+    <span class="valor-transacao">
+      ${sinal} ${formatadorMoeda.format(transacao.valor)}
+    </span>
+
+    <span>${tipoFormatado}</span>
+
+    <button
+      type="button"
+      class="btn-excluir"
+      data-id="${transacao.id}"
+      aria-label="Excluir transação ${transacao.descricao}"
+    >
+      Excluir
+    </button>
+  `;
+
+  lista.appendChild(item);
+});
 }
 
 export function atualizarResumo(resumo) {
