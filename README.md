@@ -66,6 +66,12 @@ Também foram aplicadas práticas de acessibilidade, como:
 
 O FinTrack Lite está sendo desenvolvido como projeto de Desenvolvimento Web e continuará recebendo melhorias.
 
+## Projeto online
+
+Acesse a aplicação publicada:
+
+https://jeffersonpmcs-dot.github.io/fintrack-lite/
+
 ## Autor
 
 **Jefferson Paulo Machado**
