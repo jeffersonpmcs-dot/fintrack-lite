@@ -1,0 +1,387 @@
+:root {
+  --cor-principal: #18392b;
+  --cor-principal-clara: #2f5b46;
+
+  --cor-positiva: #2f7d57;
+  --cor-negativa: #b84a4a;
+
+  --fundo: #f5f3ee;
+  --superficie: #ffffff;
+
+  --texto: #252a27;
+  --texto-secundario: #6b716d;
+
+  --borda: #d9ddd9;
+}
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* CABEÇALHO */
+
+header {
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 28px 20px;
+}
+
+header h1 {
+  max-width: 1000px;
+  margin: 0 auto 5px;
+  font-size: 30px;
+}
+
+header p {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #dfe9e3;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 35px auto;
+}
+
+section {
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+section h2 {
+  color: var(--cor-principal);
+  margin-bottom: 20px;
+  font-size: 21px;
+}
+
+/* RESUMO FINANCEIRO */
+
+main section:first-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+main section:first-child h2 {
+  grid-column: 1 / -1;
+}
+
+main section:first-child div {
+  padding: 20px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background-color: #fafaf8;
+}
+
+main section:first-child h3 {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--texto-secundario);
+  margin-bottom: 8px;
+}
+
+#saldo,
+#receitas,
+#despesas {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#saldo {
+  color: var(--cor-principal);
+}
+
+#receitas {
+  color: var(--cor-positiva);
+}
+
+#despesas {
+  color: var(--cor-negativa);
+}
+
+/* FORMULÁRIO */
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background-color: white;
+  color: var(--texto);
+  font-size: 15px;
+}
+
+input:hover,
+select:hover {
+  border-color: #aeb8b1;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #95b8a6;
+  border-color: var(--cor-principal);
+}
+
+form button {
+  grid-column: 1 / -1;
+  justify-self: end;
+
+  background-color: var(--cor-principal);
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 11px 22px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--cor-principal-clara);
+}
+
+/* FILTRO */
+
+#filtro-tipo {
+  width: auto;
+  min-width: 170px;
+  margin-bottom: 20px;
+}
+
+/* LISTA DE TRANSAÇÕES */
+
+#lista-transacoes {
+  list-style: none;
+}
+
+#lista-transacoes li {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 15px;
+
+  padding: 14px 10px;
+
+  border-bottom: 1px solid var(--borda);
+}
+
+#lista-transacoes li:last-child {
+  border-bottom: none;
+}
+
+#lista-transacoes strong {
+  color: var(--texto);
+}
+
+#lista-transacoes span {
+  color: var(--texto-secundario);
+  font-size: 14px;
+}
+
+/* BOTÃO EXCLUIR */
+
+.btn-excluir {
+  background-color: transparent;
+  color: var(--cor-negativa);
+
+  border: 1px solid var(--cor-negativa);
+  border-radius: 5px;
+
+  padding: 7px 10px;
+
+  cursor: pointer;
+}
+
+.btn-excluir:hover {
+  background-color: var(--cor-negativa);
+  color: white;
+}
+
+/* MENSAGEM QUANDO NÃO HÁ TRANSAÇÕES */
+
+#mensagem-vazia {
+  display: block !important;
+  text-align: center;
+
+  color: var(--texto-secundario);
+
+  padding: 25px !important;
+
+  border-bottom: none !important;
+}
+
+/* RODAPÉ */
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--texto-secundario);
+  font-size: 14px;
+}
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  main {
+    width: 92%;
+    margin: 25px auto;
+  }
+
+  header {
+    padding: 24px 18px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  /* RESUMO FINANCEIRO */
+
+  main section:first-child {
+    grid-template-columns: 1fr;
+  }
+
+  /* FORMULÁRIO */
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form button {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  /* LISTA DE TRANSAÇÕES */
+
+  #lista-transacoes li {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+    padding: 15px 5px;
+  }
+
+  #lista-transacoes strong {
+    grid-column: 1 / -1;
+  }
+
+  .btn-excluir {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    width: 92%;
+    margin: 20px auto;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  section h2 {
+    font-size: 19px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  #saldo,
+  #receitas,
+  #despesas {
+    font-size: 21px;
+  }
+
+  /* FILTRO */
+
+  #filtro-tipo {
+    width: 100%;
+  }
+
+  /* TRANSAÇÕES */
+
+  #lista-transacoes li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 15px 0;
+  }
+
+  #lista-transacoes strong {
+    font-size: 16px;
+  }
+
+  .btn-excluir {
+    margin-top: 5px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
+
+/* MENSAGENS DE FEEDBACK */
+
+#mensagem-status {
+  min-height: 22px;
+  margin-top: 15px;
+
+  color: var(--cor-positiva);
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #8db7a1;
+  outline-offset: 2px;
+}
