@@ -18,33 +18,30 @@ export function renderizarTransacoes(transacoes) {
     return;
   }
 
-transacoes.forEach(function (transacao) {
-  const item = document.createElement("li");
+  transacoes.forEach(function (transacao) {
+    const item = document.createElement("li");
 
-  const categorias = {
-    alimentacao: "Alimentação",
-    transporte: "Transporte",
-    lazer: "Lazer",
-    salario: "Salário",
-    outros: "Outros"
-  };
+    const categorias = {
+      alimentacao: "Alimentação",
+      transporte: "Transporte",
+      lazer: "Lazer",
+      salario: "Salário",
+      outros: "Outros",
+    };
 
-  const categoriaFormatada =
-    categorias[transacao.categoria] || transacao.categoria;
+    const categoriaFormatada =
+      categorias[transacao.categoria] || transacao.categoria;
 
-  const tipoFormatado =
-    transacao.tipo === "receita" ? "Receita" : "Despesa";
+    const tipoFormatado = transacao.tipo === "receita" ? "Receita" : "Despesa";
 
-  const sinal =
-    transacao.tipo === "receita" ? "+" : "-";
+    const sinal = transacao.tipo === "receita" ? "+" : "-";
 
-  item.classList.add(`transacao-${transacao.tipo}`);
+    item.classList.add(`transacao-${transacao.tipo}`);
 
-  item.innerHTML = `
+    item.innerHTML = `
     <strong>${transacao.descricao}</strong>
 
     <span>${categoriaFormatada}</span>
-
     <span class="valor-transacao">
       ${sinal} ${formatadorMoeda.format(transacao.valor)}
     </span>
@@ -61,8 +58,8 @@ transacoes.forEach(function (transacao) {
     </button>
   `;
 
-  lista.appendChild(item);
-});
+    lista.appendChild(item);
+  });
 }
 
 export function atualizarResumo(resumo) {

@@ -388,12 +388,12 @@ select:focus-visible {
 
 /* TIPO DAS TRANSAÇÕES */
 
-.transacao-receita .valor-transacao {
+#lista-transacoes .transacao-receita .valor-transacao {
   color: var(--cor-positiva);
   font-weight: bold;
 }
 
-.transacao-despesa .valor-transacao {
+#lista-transacoes .transacao-despesa .valor-transacao {
   color: var(--cor-negativa);
   font-weight: bold;
 }
